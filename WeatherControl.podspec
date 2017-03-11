@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "WeatherControl is a weather info provider for appropriate city name"
 
-  s.homepage     = "http://WeatherInfo/WeatherControl"
+  s.homepage     = "http://openweathermap.org/weather-conditions"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
