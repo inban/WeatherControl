@@ -11,7 +11,7 @@ import Foundation
 // The delegate method didGetWeather is called if the weather data was received.
 // The delegate method didNotGetWeather method is called if weather data was not received.
 // The delegate method didReceivedImageData is called when weather icon image data received.
-public protocol WeatherManagerDelegate {
+public protocol WeatherManagerDelegate: class {
     func didGetWeather(weather: WeatherDetails)
     func didNotGetWeather(error: NSError)
     func didReceivedImageData(data: Data)
@@ -22,7 +22,7 @@ public protocol WeatherManagerDelegate {
 
 public class WeatherManager {
     
-    public var delegate: WeatherManagerDelegate
+    public weak var delegate: WeatherManagerDelegate!
     
     // MARK: -
     public init(delegate: WeatherManagerDelegate) {
