@@ -36,7 +36,8 @@ public struct WeatherDetails {
     init(weatherData: [String: AnyObject]) {
         city = weatherData["name"] as! String
         
-        let weatherDict = weatherData["weather"]![0] as! [String: AnyObject]
+        let weatherArray = weatherData["weather"] as! [AnyObject]
+        let weatherDict = weatherArray[0] as! [String: AnyObject]
         weatherIconID = weatherDict["icon"] as! String
         
         let mainDict = weatherData["main"] as! [String: AnyObject]
