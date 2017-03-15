@@ -22,7 +22,7 @@ public protocol WeatherManagerDelegate: class {
 
 public class WeatherManager {
     
-    public weak var delegate: WeatherManagerDelegate!
+    public weak var delegate: WeatherManagerDelegate?
     
     // MARK: -
     public init(delegate: WeatherManagerDelegate) {
@@ -41,7 +41,7 @@ public class WeatherManager {
 
             if let networkError = error {
                 // An error occurred while trying to get data from the server.
-                self.delegate.didNotGetWeather(error: networkError as NSError)
+                self.delegate?.didNotGetWeather(error: networkError as NSError)
             }
             else {
                 print("Success")
@@ -56,10 +56,10 @@ public class WeatherManager {
                     let weather = WeatherDetails(weatherData: weatherData)
                     
                     // Pass Weather struct to view controller to display the weather info.
-                    self.delegate.didGetWeather(weather: weather)
+                    self.delegate?.didGetWeather(weather: weather)
                 }
                 catch let jsonError as NSError {
-                    self.delegate.didNotGetWeather(error: jsonError)
+                    self.delegate?.didNotGetWeather(error: jsonError)
                 }
             }
             
@@ -81,12 +81,12 @@ public class WeatherManager {
             
             if let networkError = error {
                 // An error occurred while trying to get data from the server.
-                self.delegate.didNotGetWeather(error: networkError as NSError)
+                self.delegate?.didNotGetWeather(error: networkError as NSError)
             }
             else {
                 print("Success")
                 // We got image data from the server!
-                self.delegate.didReceivedImageData(data:data!)
+                self.delegate?.didReceivedImageData(data:data!)
             }
             
         })
